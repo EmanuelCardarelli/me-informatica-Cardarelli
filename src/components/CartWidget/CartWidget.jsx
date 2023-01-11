@@ -1,14 +1,14 @@
-import React from "react";
-import "./CartWidget.css";
-import { FaShoppingCart } from "react-icons/fa";
+import React from 'react'
+import './CartWidget.css'
+import { FaShoppingCart } from 'react-icons/fa'
 
 const CartWidget = () => {
   return (
     <>
-      <FaShoppingCart />
-      <span className="cart-total">2</span>
+      <FaShoppingCart/>
+      <span className='cart-total'></span>
     </>
-  );
-};
+  )
+}
 
-export default CartWidget;
+export default CartWidget

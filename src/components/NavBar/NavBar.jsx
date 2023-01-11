@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./NavBar.css";
 import { FaBars } from "react-icons/fa";
 import CartWidget from "../CartWidget/CartWidget";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,16 +12,24 @@ const NavBar = () => {
   return (
     <nav>
       <div className="nav-container">
-        <span className="nav-logo">ME Informática</span>
+        <span className="nav-logo">
+          <NavLink to="/">MISTEC</NavLink>
+        </span>
         <ul className={`nav-links ${isOpen && "active"}`}>
           <li>
-            <a href="/">componentes</a>
+            <NavLink onClick={handleToggle} to="/category/componentes">
+              componentes
+            </NavLink>
           </li>
           <li>
-            <a href="/">perifericos</a>
+            <NavLink onClick={handleToggle} to="/category/perifericos">
+              perifericos
+            </NavLink>
           </li>
           <li>
-            <a href="/">notebooks</a>
+            <NavLink onClick={handleToggle} to="/category/notebooks">
+              notebooks
+            </NavLink>
           </li>
         </ul>
 

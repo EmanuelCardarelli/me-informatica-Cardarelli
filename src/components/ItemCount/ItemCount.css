@@ -1,0 +1,79 @@
+.itemcount-container {
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.count-container {
+  margin-top: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2rem auto 2rem;
+  max-width: 10rem;
+  height: 2.5rem;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 0.3rem;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.control-btn {
+  height: 100%;
+  background: rgb(255, 255, 255);
+  display: grid;
+  place-content: center;
+  font-size: 1rem;
+  outline: none;
+  color: rgb(72, 104, 179);
+  border: none;
+}
+
+.control-btn:hover {
+  background: rgb(248, 246, 246);
+}
+
+.item-btn {
+  height: 2.5rem;
+  border-radius: 0.3px;
+  font-size: 1rem;
+  padding-inline: 1.5rem;
+  font-weight: bold;
+  background: rgb(66, 191, 133);
+  border-radius: 0.3rem;
+  border: 2px transparent;
+  color: rgb(238, 238, 238);
+}
+
+.control-btn:disabled,
+.item-btn:disabled {
+  background: rgb(236, 236, 236);
+  color: rgb(173, 173, 173);
+  cursor: not-allowed;
+  border: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .count-container {
+    max-width: 50%;
+  }
+
+  .item-btn {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .itemcount-container {
+    flex-direction: column;
+  }
+
+  .count-container {
+    max-width: 100%;
+  }
+
+  .item-btn {
+    width: 100%;
+  }
+}
