@@ -13,7 +13,7 @@ const NavBar = () => {
     <nav>
       <div className="nav-container">
         <span className="nav-logo">
-          <NavLink to="/">MISTEC</NavLink>
+          <NavLink to="/">me informática</NavLink>
         </span>
         <ul className={`nav-links ${isOpen && "active"}`}>
           <li>
