@@ -1,25 +1,17 @@
-.itemcount-container {
-  border-radius: 0.3rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
 
-.count-container {
-  margin-top: auto;
-  width: 100%;
+.count-container{
   display: grid;
   grid-template-columns: 2rem auto 2rem;
-  max-width: 10rem;
+  width: 10rem;
   height: 2.5rem;
   border: 1px solid rgb(179, 179, 179);
-  border-radius: 0.3rem;
+  border-radius: .3rem;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
 }
 
-.control-btn {
+.control-btn{
   height: 100%;
   background: rgb(255, 255, 255);
   display: grid;
@@ -28,52 +20,47 @@
   outline: none;
   color: rgb(72, 104, 179);
   border: none;
+  cursor: pointer;
 }
 
-.control-btn:hover {
+.control-btn:hover{
   background: rgb(248, 246, 246);
 }
 
-.item-btn {
+.item-btn{
+  display: inline-flex;
   height: 2.5rem;
-  border-radius: 0.3px;
+  border-radius: .3px;
   font-size: 1rem;
+  line-height: 1rem;
   padding-inline: 1.5rem;
   font-weight: bold;
-  background: rgb(66, 191, 133);
-  border-radius: 0.3rem;
+  background: var(--clr-primary);
+  border-radius: .3rem;
   border: 2px transparent;
-  color: rgb(238, 238, 238);
+  cursor: pointer;
+  color:rgb(238, 238, 238);
+  align-items: center;
+  justify-content: center;
 }
 
+
 .control-btn:disabled,
-.item-btn:disabled {
+.item-btn:disabled{
   background: rgb(236, 236, 236);
   color: rgb(173, 173, 173);
-  cursor: not-allowed;
+  cursor: not-allowed;  
   border: none;
 }
 
 @media screen and (max-width: 1024px) {
-  .count-container {
-    max-width: 50%;
-  }
-
-  .item-btn {
+  .count-container{
     width: 50%;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .itemcount-container {
-    flex-direction: column;
-  }
-
-  .count-container {
-    max-width: 100%;
-  }
-
-  .item-btn {
+  .count-container{
     width: 100%;
   }
 }

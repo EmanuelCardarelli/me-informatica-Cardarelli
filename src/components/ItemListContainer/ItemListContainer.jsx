@@ -1,40 +1,42 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import ItemList from "../ItemList/ItemList";
-import Loading from "../Loading/Loading";
-import "./ItemListContainer.css";
-import products from "./products";
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { collection, getDocs, query, where } from 'firebase/firestore'
+import { db } from '../../firebase'
+import './ItemListContainer.css'
+import ItemList from '../ItemList/ItemList'
+import Loading from '../Loading/Loading'
 
 const ItemListContainer = () => {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(false);
-
+  
+  const [items,setItems] = useState([])
+  const [loading,setLoading] = useState(true)
+  
   const { id } = useParams();
 
-  useEffect(() => {
+  useEffect( ()=> {
     setLoading(true);
-    const promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(products);
-      }, 2000);
-    });
+    
+    const getItems = async ()=>{
+      let collectionQuery
+      if(!id){
+        collectionQuery = collection(db, "items")
+      }else{
+        collectionQuery = query(collection(db, "items"), where('category', '==', `${id}`))
+      }
+      const snapshot = await getDocs(collectionQuery);
+      setItems( snapshot.docs.map( itemSnapshot => ({id: itemSnapshot.id, ...itemSnapshot.data()})) )
+    }
 
-    promise.then((response) => {
-      setItems(id ? response.filter((item) => item.category === id) : response);
-      setLoading(false);
-    });
-  }, [id]);
-
-  const addToCart = (count) =>
-    alert(
-      `${count} ${count > 1 ? "items agregados" : "item agregado"} al carrito`
-    );
-
+    getItems()
+    
+    setTimeout(()=>(setLoading(false)), 1000)
+  }, [id])  
+  
   return (
     <div className="container">
-      {loading ? <Loading /> : <ItemList items={items} onAdd={addToCart} />}
+      { loading ? <Loading/> : <ItemList items={items}/> }
     </div>
-  );
-};
+  )
+}
 
-export default ItemListContainer;
+export default ItemListContainer

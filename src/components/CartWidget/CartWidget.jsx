@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './CartWidget.css'
-import { FaShoppingCart } from 'react-icons/fa'
+import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { CartContext } from '../../context/CartContext'
 
 const CartWidget = () => {
+  const { cartTotal } = useContext(CartContext)
+
   return (
     <>
-      <FaShoppingCart/>
-      <span className='cart-total'></span>
+      <AiOutlineShoppingCart/>
+      {cartTotal ? <span className='cart-total'>{cartTotal}</span> : null}
     </>
   )
 }

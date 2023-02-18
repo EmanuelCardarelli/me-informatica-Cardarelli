@@ -1,34 +1,152 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
-body {
-  overflow-x: hidden;
-  font-family: "Open Sans", sans-serif;
-  background: rgb(250, 250, 250);
+:root{
+  --clr-primary: rgb(78, 180, 91);
+  --bg-clr: rgb(250, 250, 250);
+
+  --font-primary: rgb(0, 0, 0);
+  --font-secondary: rgb(145, 146, 168);
+
+
+  --biggest-font-size: 2.5rem;
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.813rem;
+
+  --font-medium: 400;
+  --font-bold: 700;
 }
 
-* {
+@media (max-width: 968px){
+  :root{
+    --biggest-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: 0.75rem;
+  }
+}
+
+*{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
-ul {
+body{
+  width: 100vw;
+  overflow-x: hidden;
+  background: var(--bg-clr)
+}
+
+ul{
   list-style: none;
 }
 
-a {
+a{
   text-decoration: none;
   color: inherit;
+
 }
 
-img {
+img{
   max-width: 100%;
   display: block;
 }
 
-.container {
+.container{
   width: min(1200px, 90vw);
   margin-inline: auto;
   min-height: calc(100vh - 4rem);
   padding-block: 1rem 4rem;
+}
+
+.btn{
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 2.5rem;
+  padding-inline: 1.5rem;
+  border-radius: .3rem;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 600;
+  border: 3px solid transparent;
+}
+
+.btn.btn-primary{
+  background: var(--clr-primary);
+  color: white;
+}
+
+.btn.btn-primary:hover{
+  background: rgb(72, 165, 84);
+}
+
+.btn.btn-primary:active{
+  border-color: rgb(126, 209, 126);
+  color: white;
+}
+
+.btn-delete{
+  background: none; 
+  border: none; 
+  cursor: pointer;
+  color: var(--clr-primary)
+}
+
+
+.btn.icon-btn{
+  gap: .5rem;
+  padding-inline: .9rem;
+  background: rgb(235, 235, 235);
+  color: rgb(17, 17, 17);
+}
+
+.btn.icon-btn > svg{
+  font-size: 1.5rem;
+}
+
+.btn-span{
+  width: 100%;
+}
+
+@keyframes animation1 {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes animation2 {
+  0%{
+    opacity: 0;
+    transform: translateY(-.125rem);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navToggle {
+  0%{
+    opacity: .5;
+    transform: translateY(-1rem);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
