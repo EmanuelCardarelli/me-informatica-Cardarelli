@@ -2,7 +2,7 @@
 
 ## Me Informatica
 
-En este proyecto estare creando una ecommerce para la venta de insumos informaticos y productos para el mundo del gaming bajo el nombre de marca MISTEC
+En este proyecto estare creando una ecommerce para la venta de insumos informaticos y productos para el mundo del gaming bajo el nombre de marca Me informatica
 
 El sitio cuenta con 3 categorias.
 
